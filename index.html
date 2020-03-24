@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta lang="en-us" charset="utf-8">
+        <title>Add On Project</title>
+
+        <!--style tag,internal, defined in head section, -->
+        <!-- #, used for id-->
+        <!-- ., used for classes -->
+        <style>
+            #styletagstyle {
+                background-color: blue;
+            }
+
+            .classstyle {
+                background-color: peru;
+                font-size: 24px;
+            }
+        </style>
+
+        <!-- external css file-->
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+
+    </head>
+    <body>
+        <!---->
+        <!-- links, a tag -->
+        <a href="https://www.w3schools.com">Link</a>
+
+        <!-- links can also be anything, img etc-->
+        <a href="https://www.w3schools.com"><img src="doesntexist.jpg" alt="pic thats a link"></a>
+
+        <!-- links should have / on the end of subfolder addresses -->
+        <p> subfolder addresses should have the / on the end or it might send 2 requests <a href="https://www.w3schools.com/html/"> https://www.w3schools.com/html/ </a> <p>
+
+        <!-- 
+            link target,  
+            _blank 
+                opens in a new window,
+            _self 
+                is default,opens in current window,
+            _parent 
+                opens in a parent frame,
+            _top
+                opens in document in full body of window
+        -->
+        <p><a href="https://www.w3schools.com" target="_blank">_blank, new window</a></p>
+        <p><a href="https://www.w3schools.com" target="_top">_top, opens in full body, breaks out of any frames</a></p>
+
+        <!-- link title -->
+        <p><a href="https://www.w3schools.com" title="goes to w3schools"></a>link with title attribute,does hover tooltip text</a></p>
+
+        <!-- local link, for elsewhere on the same site, no www -->
+        <a href="/localpage1">local link for same site</a>
+
+        <!-- link using javascript and button, -->
+        <button onclick="document.location = 'https:\/\/www.w3schools.com'" >Link using JS onclick and no tags, go to w3c</button>
+
+        <!--bookmark on same page, aka jump to-->
+        <p><a href="#styletagstyle">bookmark to #styletagstyle</a></p>
+
+        <!-- bookmark to another page-->
+        <p><a href="index2.html#idname">bookmark to another page same site,(don't have this set up to work currently)</a></p>
+
+    
+        <!-- empty HTML elements,line break br tag, include ending slash for xml parsers-->
+        <!-- ending / NOT required-->
+        <br />
+
+        <!--attributes, attributename=attributevalue -->
+        <!-- always quote attribute values "" , single quotes inside if need be " '' "-->
+        <!-- some attributes only have name like disabled-->
+        <!-- disabled, input element to be disabled -->
+        <input type="text" disabled />
+
+        <!-- alt, alternative text for images -->
+        <!-- also image behaving like an inline element, not block-->
+        <img src="doesntexist.jpg" alt="cool picture" />
+
+        <!-- img gifs, same as regular images-->
+        <img src="doesntexist.gif" alt="gif picture" />
+
+        <!--inline style, style="property:value;property:value"-->
+        <!-- property:value refer to css property and css value-->
+        <h1 style="color:red;text-align:center">H1 Here</h1><!-- htags for heading -->
+
+        <!-- horizontal rule, hr, makes a horizonal line-->
+        <hr />
+        
+        <!--html display, extra spaces and new lines in the editor are ignored, 
+            you must use br or pre element-->
+        <p>
+             Line 1 spacing     ignored.
+             Line 2  new lines ignored.
+             Line 3    .
+        </p>
+        <p>Line 1. <br> Line 2, line break worked.</p>
+
+        <!--pre element, preserves lines and spaces-->
+        <pre>
+            Line 1.
+            Line 2           with spaces.
+            Line 3.
+        </pre>
+
+        <!--formatting elements, used to decorate text, all inline elements-->
+        <!-- b, bold text-->
+        <b>Bold</b>
+
+        <!-- strong, like bold but added semantic importance-->
+        <strong>Strong</strong>
+
+        <!-- i, italics-->
+        <i>italics</i>
+
+        <!-- em, italics with emphasis-->
+        <em>italics with emphasis</em>
+
+        <!--small, makes text smaller-->
+        <p>normal text<small> smaller text </small>more normal</p>
+
+        <!--mark, highlights text-->
+        <mark>mark highlights</mark>
+
+        <!-- del, shows line-through text -->
+        <del>del, shows lined through text</del>
+        
+        <!--ins, underlines text, supposed to mean inserted text-->
+        <p>text and then <ins>inserted text</ins></p>
+
+        <!-- sub, subscript-->
+        <p>here is<sub>subscript</sub></p>
+
+        <!--sup, superscript-->
+        <p>here is<sup>superscript</sup></p>
+
+        <!--quotations and citing-->
+        <!--q, quote, browsers add ""-->
+        <p>here is a batman quote <q>First try!</q></p>
+
+        <!-- blockquote, used for long quotes, indented and no ""-->
+        <p> here is a blockquote 
+            <blockquote cite="www.somesite">Come with me if you want to live</blockquote>
+        </p>
+
+        <!--cite, defines title of work, italicised-->
+        <p>here is a cool movie titled <cite>The Lord of the Rings</cite></p>
+
+        <!-- address, for contact information, br usually auto added before and after-->
+        <address>123 center street</address>
+
+
+        <!--abr, lets browser know something was abbreviated-->
+        <p>Have you checked out <abr title="FreeCodeCamp">FCC</abr>?</p>
+
+        <!-- bdo, bi-directional override, aka write text from right to left -->
+        <bdo dir="rtl">bdo, right to left</bdo>
+
+        <!-- html colors, can be defined using:
+             140ish predefined color names, not in quotes as the value,
+             RGB,
+             HEX,
+             HSL,
+             RGBA,
+             HSLA
+        -->
+
+        <p style="color:aqua">predefined color</p>
+
+        <!-- HEX, #rrggbb are hexadecimal values between 00 and FF, same as decimal 0-255-->
+        <p style="color:#ff0000">HEX, #ff0000, red as ff is highest value, and others set to 00 </p>
+        <p style="color:#000000">HEX, #000000, set to black</p>
+        <p style="background-color:gray;color:#ffffff">HEX #ffffff, set to white</p>
+
+        <!--RGB, red green blue, numbers between 0-255 specify intensity of each color-->
+        <p style="color:rgb(255, 0,0)">RGB, Red set to 255, others to 0</p>
+        <p style="color:rgb(0,0,0)">RGB, set to black, 0,0,0</p>
+        <p style="background-color:gray;color:rgb(255,255,255)">RGB, set to white, 255, 255, 255</p>
+
+        <!-- RGBA, like RGB plus the A aplha aka opacity -->
+        <p style="color:rgb(255,0,0,.5)">RGBA, .5 alpha/opacity</p>
+
+        <!-- HSL, 
+            hsl(hue,saturation,lightness), 
+            hue 
+                is a degree on the color wheel from 0 to 360, its a degree so no % needed,
+                0 is red, 120 is green, 240 is blue
+            saturation %
+                means shade of gray
+                0% means gray, 100% is full color
+            lightness %
+                represents light or dark/black
+                0% means black, 50% means normal, 100% means white
+        -->
+        <p style="color:hsl(0,100%,50%)">hsl(0,100%,50%) normal red</p>
+        <p style="color:hsl(0,50%,50%)">hsl(0,50%,50%) red with 50% to gray</p>
+        <p style="color:hsl(0,100%,25%)">hsl(0,100%,25%) red with 25% lightness, aka halfway dark</p>
+        <p style="color:hsl(0, 100%, 75%)">hsl(0,100%,75%) red with 75% lightness, aka halfway to white</p>
+        <p style="color:hsl(120, 100%, 50%)">hsl(120, 100%, 50%) normal green</p>
+
+        <!-- HSLA, like HLS and A means aplha/opacity, number 0 to 1-->
+        <p style="color:hsla(0,100%,50%,.5)">HSLA, hsla(0,100%,50%,.5) normal red with 50% opacity</p>
+
+        <!-- id, uses # in the css selector-->
+        <p id="styletagstyle">styletagstyle with id, background-color: blue</p>
+
+        <!-- class, uses . in the css selector-->
+        <p class="classstyle">classstyle</p>
+
+        <!-- img, add the usemap attribute usemap="#nameofmap" to the img, -->
+        <!-- map, 
+            defines an image map, 
+            clickable areas on an image,
+            add shapes and coordinates to the map with area, 
+            make a regular img, 
+            name="nameofmap"
+        -->
+        <!-- area, 
+            defines the clickable areas, 
+            shape="rect" coords="100,100,50,50"
+            available shapes
+                circle
+                rect 
+                poly
+                default 
+            coords for rect
+                first pair is for x 100,100
+                second pair is for y 50,50
+            coords for cirle
+                first pair is for x 200,200
+                second is for radius 50, for 50px
+        -->
+        <p>imagemap below, click the suit or the lamp</p>
+        <img src="https://picsum.photos/id/1059/500/400/" alt="vintage store" usemap="#vintagemap"/>
+        <map name="vintagemap">
+            <area shape="rect" coords="200,100,275,200" onclick="alert('suit')"> 
+            <area shape="circle" coords="475,150,50" onclick="alert('lamp')">
+        </map>
+
+
+        <!-- picture, picture element allows for multiple sources, 
+            the first src that meets the criteria is the one that loads,
+            will also change if window resizes etc,
+            img is still needed as a default
+        -->
+        <br>
+        <br>
+        <p>picture element, breakpoints at 900,650, and a default img</p>
+        <picture>
+            <source media="(min-width: 900px)" srcset="https://picsum.photos/id/1015/200/150/">
+            <source media="(min-width: 650px)" srcset="https://picsum.photos/id/10/200/150/">
+            <img src='https://picsum.photos/id/0/200/150/'>
+        </picture>
+
+        
+    </body>
+</html>
