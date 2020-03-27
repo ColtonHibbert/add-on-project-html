@@ -1,25 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
+    <!-- lang should be declared in the html tag -->
     <head>
-        <meta lang="en-us" charset="utf-8">
+         <!-- base, 
+            sets the base url for all of the hrefs in the document, 
+            you will want to put this at the top of the document so everything that follows uses it,
+            if there is no base tag then default for document.baseURI is location.href,
+            base url can be accessed with JS by document.baseURI,
+            open graph tags to not recognize base,
+            target can also be used with base
+        -->
+        <!-- base example
+            <base href="https://example.com">
+            <a href="#anchor">Anchor</a>
+            this link points to https://example.com/#anchor
+        --> 
+
+        <!-- meta tags are not displayed and give data about the page etc -->
+        <!-- meta, title, style, script, link, base -->
+
+        <!-- meta used for charset, author, language, 
+            name="" used for mutiple things with content=""
+                name=keywords(for search engines) content=""
+                name="author" content=""
+                name="viewport" content="width=device-width, initial-scale=1.0"
+         -->
+        <meta charset="utf-8">
+        <!-- default charset is utf-8, encodings on page depend on the charset, 
+            it has almost every character in the world, more than 10,000 -->
+        <!-- older encodings not used anymore 
+            ASCII with 128 characters,
+            ISO-8859-1 with 256 characters,
+            ANSI which is same as ISO-8859-1 with 32 extra characters,
+        -->
+        <meta name="add on project html">
+        <meta name="keywords" content="html, practice, add on project">
+        <meta name="author" content="colton hibbert">
+        <!-- viewport, should always set as below so the browser knows to use the device width
+            width=device-width
+            initial-scale=1.0 will set zoom to normal
+        -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- title is for title page for web browsers and favorites -->
         <title>Add On Project</title>
 
         <!--style tag,internal, defined in head section, -->
         <!-- #, used for id-->
         <!-- ., used for classes -->
         <style>
-            #styletagstyle {
+            #style-tag-style {
                 background-color: blue;
             }
 
-            .classstyle {
+            .class-style {
                 background-color: peru;
                 font-size: 24px;
+            }
+            .color-paragraph {
+                color: red;
+            }
+            span.note {
+                color: turquoise;
             }
         </style>
 
         <!-- external css file-->
+        <!-- link, used to link to external style sheets, nothing else -->
         <link rel="stylesheet" type="text/css" href="styles.css"/>
+
+        <script></script>
+
+       
 
     </head>
     <body>
@@ -43,6 +95,8 @@
                 opens in a parent frame,
             _top
                 opens in document in full body of window
+            custom-name
+                opens up in an element you have with that name, example for iframe, name="custom-name"
         -->
         <p><a href="https://www.w3schools.com" target="_blank">_blank, new window</a></p>
         <p><a href="https://www.w3schools.com" target="_top">_top, opens in full body, breaks out of any frames</a></p>
@@ -57,7 +111,7 @@
         <button onclick="document.location = 'https:\/\/www.w3schools.com'" >Link using JS onclick and no tags, go to w3c</button>
 
         <!--bookmark on same page, aka jump to-->
-        <p><a href="#styletagstyle">bookmark to #styletagstyle</a></p>
+        <p><a href="#style-tag-style">bookmark to #styletagstyle</a></p>
 
         <!-- bookmark to another page-->
         <p><a href="index2.html#idname">bookmark to another page same site,(don't have this set up to work currently)</a></p>
@@ -202,10 +256,14 @@
         <p style="color:hsla(0,100%,50%,.5)">HSLA, hsla(0,100%,50%,.5) normal red with 50% opacity</p>
 
         <!-- id, uses # in the css selector-->
-        <p id="styletagstyle">styletagstyle with id, background-color: blue</p>
+        <p id="style-tag-style">style-tag-style with id, background-color: blue</p>
 
         <!-- class, uses . in the css selector-->
-        <p class="classstyle">classstyle</p>
+        <!-- classes are case sensitive -->
+        <p class="class-style">class-style</p>
+
+        <!-- .class-name can be used after a css selector -->
+        <span class="note">span class="note", styled with selector span.note { }</span>
 
         <!-- img, add the usemap attribute usemap="#nameofmap" to the img, -->
         <!-- map, 
@@ -252,6 +310,455 @@
             <img src='https://picsum.photos/id/0/200/150/'>
         </picture>
 
-        
+        <!-- 
+            table,  
+            th, is table header
+            caption, gives title to the table
+            tr, table row
+            td, table data or cell, can also think of it as a column
+            rowspan attribute, make cell span many rows, rowspan="2"
+            colspan attribute, make cell span many columns, colspan="2"
+        -->
+        <!-- thead, tbody, tfooter are semantic and for styling -->
+        <!-- can also use colgroup together with col tags for columns -->
+        <!-- give border and padding for styles to make table lines, border collapse to mergeborders-->
+        <table style="border:1px solid black; padding:5px; border-collapse: collapse;">
+            <tr style="border:1px solid black; padding:5px; border-collapse: collapse;">
+                <th style="border:1px solid black; padding:5px; border-collapse: collapse;">Name</th>
+                <th colspan="2"style="border:1px solid black; padding:5px; border-collapse: collapse;" >Telephone</th>
+            </tr>
+            <tr style="border:1px solid black; padding:5px; border-collapse: collapse;">
+                <td style="border:1px solid black; padding:5px; border-collapse: collapse;" >Colton Hibbert</td>
+                <td style="border:1px solid black; padding:5px; border-collapse: collapse;" >3851234567</td>
+                <td style="border:1px solid black; padding:5px; border-collapse: collapse;" >3851019999</td>
+            </tr>
+        </table>
+      
+        <!-- lists -->
+        <!-- ul, unordered list, 
+            list-style: 
+                none
+                cirlce
+                square
+                none
+        -->
+        <ul style="list-style:square">
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Cranberry</li>
+        </ul>
+
+        <!--ol, ordered list, type attribute
+            type="1", numbers
+            type="A", uppercase letters
+            type="a", lowercase letters
+            type="I", uppercase Roman numeral
+            type="i", lowercase Roman numeral
+        -->
+        <p>ordered list type="a"</p>
+        <ol type="a">
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Cranberry</li>   
+        </ol>
+
+        <!-- start, start="100", start the count as specified -->
+        <p>ordered list with attribute, start="51"</p>
+        <ol start="51">
+            <li>fifty-one</li>
+            <li>fifty-two</li>
+            <li>fifty-three</li>
+        </ol>
+
+        <!-- 
+            dl tag, description list 
+            dl, descriptionlist tag
+            dt, description term
+            dd, description data/item
+        -->
+        <p>description list</p>
+        <dl>
+            <dt>Mo Bettah Chicken</dt>
+            <dd>Katsu</dd>
+            <dd>Teryaki</dd>
+            <dd>Pelehu</dd>
+            <dt>Mo Bettah Rice</dt>
+            <dd>Brown Rice</dd>
+            <dd>White Rice</dd>
+        </dl>
+
+        <p>Nested list</p>
+        <ul>
+            <li>One</li>
+            <li>Two</li>
+                <ul>
+                    <li>Two A</li>
+                    <li>Two B</li>
+                </ul>
+        </ul>
+
+        <!-- Block level elements, takes up whole block, means a new line and 100% width -->
+        <div>Div is Block level element</div>
+        <!-- inline elements, 
+            only takes us as much space as needed,
+            will stay inline if it's nested or follows another another inline element,
+            usually sit inside block level elements but don't have to like images,
+            an inline that follows a block element(not nested) will start on a new line,
+            inline elements will also wrap automatically if needed
+        -->
+        <p>paragraph is block level</p><span>span, here is an inline span element after a paragraph, starts on a new line because its not nested</span><img src=".dd"><span> image and another span comes after, inline elements following inline elements will stay inline</span>
+        <p>paragraph,<span>span, here is a nested span inside a paragraph nested so stays inline</span></p>
+
+        <!-- iframe, displays a web-page within a web-page, stands for inline-frame -->
+        <!-- set src attribute, element size, style for border if wanted -->
+        <br />
+        <p>iframe, displays page within a page</p>
+        <iframe src="https://www.w3schools.com" style="border:none" width="300" height="200" ></iframe>
+
+        <!-- set up i frame target with name="custom-name" on iframe, and on a-tag target="custom-name"-->
+        <p>Open up i frame by clicking <a src="https://www.w3schools.com" target="open-sesame" style="color:blue;"> here </a> doesn't work because X-Frame-Options is set to sameorigin on w3schools</p>
+        <iframe name="open-sesame" width="300" height="200"></iframe>
+
+        <p>JavaScript can change html content, styles, attributes</p>
+        <p id="javascript-demo">javascript-demo</p>
+        <button onclick="changeContent()">change content</button>
+        <button onclick="changeStyle()">change style</button>
+
+        <img id="change-attribute" src="https://picsum.photos/id/10/200/150/">
+        <button onclick="changeAttribute()">change attributes, src="different"</button>
+
+        <!-- HTML filepaths -->
+        <p>filepaths, see code notes</p>
+        <!-- relative filepaths
+            src="picture.jpg" located in current folder
+            src="images/picture.jpg" images folder in current folder
+            src="/images/picture.jpg" images folder at the root of web
+            src="../picture.jpg" up one folder
+        -->
+        <!-- absolute filepaths is the whole thing https://www.etc -->
+
+        <p>HTML Layout techniques</p>
+        <p>HTML table, not recommended</p>
+        <p>CSS position and float properties</p>
+        <p>CSS flexbox</p>
+        <p>CSS grid</p>
+        <p>CSS frameworks like bootstrap</p>
+
+        <!-- layout elements, these should all be block level and also provide semantics, 
+            semantics means the name of the element/tag describes what's in it
+        -->
+        <p>layout elements</p>
+        <header>header</header>
+        <nav>nav</nav>
+        <section>section</section>
+        <article>article</article>
+        <aside>aside, aka sidebar</aside>
+        <footer>footer</footer>
+        <details>details</details>
+        <summary>summary, aka heading for details, defines a heading for the details element</summary>
+
+        <!-- Code elements, all inline  -->
+        <p>Computer Code Elements</p>
+        <!-- code, place code inside, can also use html inside as well like br -->
+        <code>
+            x = 1; <br>
+            y = 2; <br>
+            z = x + y;
+        </code>
+
+        <!-- code with pre, best practice to use code inside of a pre element so preserve spacing and line breaks-->
+        <pre>
+            <code>
+                function coolJavascript() {
+                    //spacing and line breaks preserved with code tags nested inside pre tags
+                    return 'hello';
+                }
+             </code>
+        </pre>
+        <!-- kbd, keyboard and voice input, displays as monospace font -->
+        <p>kbd, kbd is for keyboard and voice input, save a document by pressing <kbd>Ctrl + S </kbd></p>
+
+        <!-- samp, for output of programs like returned values or errors, displays as monospace font -->
+        <p>samp, samp is for program output, whoa looks like you have an <samp>error</samp> </p>
+
+        <!-- var, used to display a variable or equation etc, slanted text in special font, maybe monospace -->
+        <p>var element, <var>E=mc</var><sup>2</sup></p>
+
+        <!-- figure and figcaption used together, 
+            figure specifies self-contained content like pictures, videos, graphs, etc
+            figcaption gives a description for something such as an image 
+        -->
+        <p>figure and figcaption</p>
+        <figure>
+            <img src="https://picsum.photos/id/10/200/150/" alt="outdoor picture">
+            <figcaption>cool picture of the outdoors</figcaption>
+        </figure>
+
+        <!-- time, semantic only, not visible, inline, can be useful for browsers or encoding dates-->
+        <p>time tag, semantic only, not visible, inline, can be useful for browsers or encoding dates</p>
+        <p>I'm going to the gym early on <time datetime="2020-01-01 06:00">New Year's Day</time></p>
+
+        <!-- HTML entities are reserved characters, use 
+            &entity_name, &lt
+            or 
+            &#entity_number, &#60
+            to make left tag, <
+        -->
+        <!-- cant figure out how to escape the html entities inside the code tags, 
+            it will still convert the characters so I used spans so seperate the &
+        -->
+        <div>HTML Entities</div>
+        <p>use <span>&</span><span>lt;</span> to make a &lt;</p>
+        <p>use <span>&</span><span>copy;</span> to make a &copy</p>
+        <p>non-breaking space, keeps the words together and can preserve multiple &nbsp &nbsp &nbsp &nbsp &nbsp spaces, <span>&</span><span>nbsp;</span> or <span>&</span><span>#160;</span></code></p>
+        <p>non-breaking hyphen, <code>\&#8209</code> &#8209</p>
+
+        <div>HTML Symbols</div>
+        <p>used for symbols of maths, other languages etc, same usage as entities</p>
+        <p>&#8721;, and sum is <span>&</span><span>#8721;</span></p>
+
+        <br />
+        <p>HTML Combine Diacritical Marks</p>
+        <p>add a mark and a character</p>
+        <p>a&#768;, add ` to a <span>a&</span><span>#768;</span></p>
+
+        <p>Emojis, use char codes just like entities and symbols</p>
+        <p>&#128516;, <span>&</span><span>#128516;</span></p>
+        <br />
+
+
+        <!-- 
+            url, uniform resource locator 
+            url can be composed word web address 
+            scheme://prefix.domain:port/path/filename
+                scheme, type of internet service
+                    http, hypertext transfer protocol
+                    https, secure hypertext transfer protocol
+                    ftp, file transfer protocol, downloading or uploading files
+                    file, files on computer
+                prefix, defines a domain prefix,
+                    www, is default for http
+                domain, the domain name, aka website name 
+                    w3schools.com
+                port, port number of host
+                    80, default port
+                path, defines path at the server
+                    root directory is default or if path is omitted
+                filename, 
+        -->
+        <p>URL encode, address, and IP</p>
+        <p>scheme://prefix.domain:port/path/filename</p>
+        <p>web address https://www.w3schools.com/html/default.asp</p>
+        <p>ip address 192.68.20.50</p>
+        <p>Encoding, see URL encoding table to lookup</p>
+        <p>In URL non ASCII characters must be encoded with % and the charcter number</p>
+        <p>space is encoded with %20</p>
+
+
+        <p>XHTML</p>
+        <p>like HTML but with additional rules, XHTML is an XML application</p>
+        <pre>
+            1. <span><</span>!DOCTYPE> at the start of every page
+            2. xmlns attribute required in the html tag
+            3. all element names lowercase
+            4. close all empty elements with a / at the ending
+            5. all attribute names lowercase
+            6. quote all attribute values, no minimization
+        </pre>
+            
+        <!--form, form element contains form elements like buttons etc -->
+        <!-- 
+             action="/endpoint.filename", sends the form data to somewhere, aka the form handler
+             name="form-name", used to identify the form from the DOM, 
+             target="_self"
+                _self, form submitted from current window 
+                _blank, opens up result of form submission in new window
+            method="post"
+                get, default and submits in query string in URL, not secure, 2048 character limit, data sent in name=value pairs
+                post, sends data in post body, unlimited data, post data can't be bookmarked
+            accept-charset=""
+                charset the form is submitted in, default is page charset
+            autocomplete="on"
+                default on, tells browser to autocomplete fields
+            enctype="url-encoded"
+                default is url-encoded, specifies what type of encoding for the submitted data
+            novalidate="novalidate"
+                default off, tells browser not to validate the form data meaning you can submit without it being filled out? or save and continue later
+                what validate means is not clearly defined that I could tell 
+        -->
+        <p>form element, and form elements</p>
+        <form id="form1" action="/endpoint.filename">
+
+            <!-- 
+                select, defines a list of options, needs a name and should have an id
+                    id="id-name"
+                    name="cars", required to match up name/value
+                    size="3", defines how many values show up at a time in select window
+                    multiple="2", allows more than 1 option to be selected
+            -->
+            <p>select tag</p>
+            <select id="select-name" name="cars" size="3" multiple="multiple">
+                <!--
+                    option, 
+                    value="value-name", gives the value for whatever you select
+                    selected="selected", autoselects a certain value, default is first value
+                -->
+                <option value="honda">honda</option>
+                <option value="ford" selected="selected">ford</option>
+                <option value="chevy">chevy</option>
+                <option value="toyota">toyota</option>
+                <!-- 
+                optgroup, defines group of related options in select dropdown
+                    label="label-name"
+                -->    
+                <optgroup label="european">
+                    <option>bmw</option>
+                    <option>mercedes</option>
+                </optgroup>
+            </select>
+
+            <!-- textarea, submit text
+                rows and col are for width and height, use css instead
+            -->
+            <p>textarea</p>
+            <textarea name="cool-message" rows="10" col="30">
+                Some default text.
+            </textarea>
+
+            <!-- button, always specify type for button so browser doesn't pick something different -->
+            <p>button, can also give value="button-text" instead of typing between the tags</p>
+            <button type="button">button, type="button"</button>
+
+            <p>fieldset, block-level and provides semantic meaning to group form data</p>
+            <fieldset>
+                <legend>legend, title for the fieldset</legend>
+                <label for="first-name">first name</label>
+                <input id="first-name" name="first-name" type="text" />
+            </fieldset>
+            
+            <p>input types</p>
+            <div>All inputs should have a seperate label, connects clicking text area to input etc</div>
+            <div>for="id-name" for in label should match input id</div>
+            <div>All inputs should have a name, or data will not be submitted, names can be shared if needed like for radio buttons</div>
+            <div>All inputs should have an id</div> 
+            <p>input, type="text"</p>
+            <label for="text-id">text label</label>
+            <input id="text-id" type="text" name="text-name" />
+            <p>input type="radio", only 1 radio can be selected, based off of the name="radio-name", value needed</p>
+            <label for="radio-id1">radio label1</label>
+            <input id="radio-id1" type="radio" name="radio-name" value="radio1" />
+            <label for="radioid2">radiolabel2</label>
+            <input id="radio-id2" type="radio" name="radio-name" value="radio2" />
+            <p>input type="submit"</p>
+            <input id="submit-id" type="submit" name="submit-name" value="submit-button-text">
+            <p>input type="password", password field filled with asterisk*</p>
+            <label for="password-id">password label</label>
+            <input id="password-id" type="password" name="password-name" />
+            <p>input type="reset", resets ALL form values to DEFAULT</p>
+            <label for="reset-id">reset label</label>
+            <input id="reset-id" type="reset" />
+            <p>input type="checkbox", value needed, allows zero to many to be selected</p>
+            <input id="corvette" type="checkbox" name="corvette" value="corvette" />
+            <label for="corvette">corvette label</label>
+            <input id="mustang" type="checkbox" name="mustang" value="mustang" />
+            <label for="mustang">mustang label</label>
+            <input id="gtr" type="checkbox" name="gtr" value="gtr" />
+            <label for="gtr">gtr label</label>
+            <p>input type="color", brings up color selector</p>
+            <label for="color-id">color label</label>
+            <input id="color-id" type="color" name="color-id" />
+            <p>input type="date", min="" max="" for date restrictions</p>
+            <label for="date-id">date label</label>
+            <input id="date-id" type="date" name="date-id" max="2020-12-31"/>
+            <p>input type="datetime-local", date&time with no timezone, may bring up datepicker per browser</p>
+            <label for="datetime-local-id">datetime-local label</label>
+            <input id="datetime-local-id" type="datetime-local" name="datetime-local-id" />
+            <p>input type="email"</p>
+            <label for="email-id">email label</label>
+            <input id="email-id" type="email" name="email-id" />
+            <p>input type="file", brings up file manager to select a file</p>
+            <label for="file-id">file label</label>
+            <input id="file-id" type="file" name="file=id" />
+            <p>input type="month", month AND year, may bring up datepicker per browser</p>
+            <label for="month-id">month label</label>
+            <input id="month-id" type="month" name="month-id" />
+            <p>input type="number", min="" max="" attributes can be added</p>
+            <label for="number-id">number label</label>
+            <input id="number-id" type="number" name="number-id" min="1" max="10" />
+            <p>input type="range", gives a slider, min="" max="", default is 0 to 100, step="", step is optional and sets the increments</p>
+            <label for="range-id">range label</label>
+            <input id="range-id" type="range" name="range-id" min="150" max="200">
+            <p>input type="search", just like text type</p>
+            <label for="search-id">search label</label>
+            <input id="search-id" type="search" name="search-id" />
+            <p>input type="tel", for telephone, pattern="" can give regex pattern to validate</p>
+            <label for="tel-id">tel label</label>
+            <input id="tel-id" type="tel" name="tel-id" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+            <p>input type="time", 01-12 time with am/pm, may bring up time picker per browser</p>
+            <label for="time-id">time label</label>
+            <input id="time-id" type="time" name="time-id" />
+            <p>input type="url", used for submitting urls</p>
+            <label for="url-id">url label</label>
+            <input id="url-id" type="url" name="url-id" />
+            <p>input type="week", week AND year, browser may bring up date picker</p>
+            <label for="week-id">week label</label>
+            <input id="week-id" type="week" name="week-id" />
+            <p>input type="hidden",store hidden but NOT secure values, will not display to user, will show in debugger</p>
+            <p>use for submitting additional information to DB</p>
+            <input id="hidden-id" type="hidden" name="hidden-id" value="123hiddenvalue" />
+            
+            
+            <!-- datalist, 
+                gives a list of predefined options for an input,
+                id="datalist-id"
+            -->
+            <!-- input,  list="datalist-id" is needed to link the input to the datalist 
+                list="datalist-id"
+            -->
+            <p>datalist</p>
+            <input list="browsers">
+            <datalist id="browsers">
+                <option value="chrome"></option>
+                <option value="firefox"></option>
+                <option value="brave"></option>
+            </datalist>
+
+        </form>
+
+        <br>
+        <p>output</p>
+        <!-- output, use to output values of programs or equations, 
+            a div might work the same?
+            note how we are accessing the DOM via JS with the name and .value
+        -->
+        <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+            0
+            <input type="range" id="a" name="a" value="50" />
+            100 +
+            <input type="input" id="b" name="b" value="50" />
+            =
+            <output name="x" for="a b"></output>
+            <br />
+        </form>
     </body>
-</html>
+
+    <script>
+        //html script tags
+        //src attribute points to external file
+        // or write javascript within the tags
+        //<noscript>Browser doesn't support JS</noscript> give message if JavaScript isn't supported in the browser 
+
+        //JavaScript can change HTML content
+        function changeContent() {
+            document.getElementById("javascript-demo").innerHTML = "javascript-demo-content-changed";
+        }
+        //JavaScript to change styles
+        function changeStyle() {
+            document.getElementById("javascript-demo").style="color:blue;font-size:30px";
+        }
+        //JavaScript to change attributes
+        function changeAttribute() {
+            document.getElementById("change-attribute").src="https://picsum.photos/id/1015/200/150/";
+        }
+    </script>
+</html> 
