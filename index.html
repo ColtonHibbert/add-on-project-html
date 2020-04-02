@@ -74,7 +74,29 @@
        
 
     </head>
-    <body>
+
+    <!-- html global events, usually set in the body tag, not always -->
+    <!-- 
+        onload="myFunction()", fires after page finishes loading, eligible tags, <body>, <iframe>, <img>, <input type="image">, <link>, <script> and <style>
+        onerror="myFunction()", fires when an error occurs loading a file, eligible tags <img>, <input type="image">, <object>, <link>, and <script>, not body? 
+        onbeforeprint="myFunction()", fires before the print page box appears
+        onafterprint="myFunction()", fires after print page box disappears
+        onbeforeunload=" return myFunction()", fires when script is about to be unloaded, aka leave page, requires return then functionName, default is are you sure you want to leave this page? dialougue
+        onunload="myFunction()", may not work well, browser implementation differs, fires when user leaves page or browser "window" is closed, refreshing a page also fires onload and onunload
+        onhashchange="myFunction()", fires when there are changes to the anchor part of a URL, http://www.example.com/test.htm#part2 - The anchor part of this URL would be #part2, change with back or forward buttons, alter location.href or location.hash = "", click link to bookmark anchor
+        onmessage="myFunction()", fires when message is received from an event source, like SSE or Worker
+        onoffline="myFunction()", fires when browser works offline
+        ononline="myFunction()", when browswer starts working online
+        onpagehide="myFunction()", fires when users navigates away from a page
+        onpageshow="myFunction()", fires when user navigates to a page
+        onpopstate="myFunction()", fires when window history is updated
+        onresize="myFunction()", fires when browser window is resized
+        onstorage="myFunction()", fires when web storage is updated
+    <body> 
+    </body>
+    -->
+    <body
+    >
         <!---->
         <!-- links, a tag -->
         <a href="https://www.w3schools.com">Link</a>
@@ -129,7 +151,7 @@
 
         <!-- alt, alternative text for images -->
         <!-- also image behaving like an inline element, not block-->
-        <img src="doesntexist.jpg" alt="cool picture" />
+        <img id="jsinfo" src="./jsinfosite.PNG" width="200" height="100" alt="cool picture" />
 
         <!-- img gifs, same as regular images-->
         <img src="doesntexist.gif" alt="gif picture" />
@@ -179,7 +201,7 @@
         <!-- del, shows line-through text -->
         <del>del, shows lined through text</del>
         
-        <!--ins, underlines text, supposed to mean inserted text-->
+        <!--ins,  supposed to mean inserted text in a document, just underlines it-->
         <p>text and then <ins>inserted text</ins></p>
 
         <!-- sub, subscript-->
@@ -289,7 +311,7 @@
                 second is for radius 50, for 50px
         -->
         <p>imagemap below, click the suit or the lamp</p>
-        <img src="https://picsum.photos/id/1059/500/400/" alt="vintage store" usemap="#vintagemap"/>
+        <img id="vintagemap" src="https://picsum.photos/id/1059/500/400/" alt="vintage store" usemap="#vintagemap"/>
         <map name="vintagemap">
             <area shape="rect" coords="200,100,275,200" onclick="alert('suit')"> 
             <area shape="circle" coords="475,150,50" onclick="alert('lamp')">
@@ -484,6 +506,15 @@
         <!-- var, used to display a variable or equation etc, slanted text in special font, maybe monospace -->
         <p>var element, <var>E=mc</var><sup>2</sup></p>
 
+        <p>meter element, displays a gauge, uses value="" min="" and max="", takes scalar and percentage values like .6 for 60%</p>
+        <p>uses other attributes, form, high, low, optimum</p>
+        <label for="meter-id">meter label</label>
+        <meter id="meter-id" name="meter-id" value="4" min="0" max="10"></meter>
+
+        <p>progress element, only takes value="" and max="", use for progresss bar not a guage, doesn't go to a form</p>
+        <label for="progress-id">progress label</label>
+        <progress id="progress-id" value="35" max="100"></progress>
+
         <!-- figure and figcaption used together, 
             figure specifies self-contained content like pictures, videos, graphs, etc
             figcaption gives a description for something such as an image 
@@ -585,6 +616,18 @@
             novalidate="novalidate"
                 default off, tells browser not to validate the form data meaning you can submit without it being filled out? or save and continue later
                 what validate means is not clearly defined that I could tell 
+        -->
+        <!-- form events
+            onblur="myFunction()", fires the moment an element loses focus
+            onchange="myFunction()", fires when the value of an element changes
+            oncontextmenu="myFunction()",fires when a context menu is triggered
+            onfocus="myFunction()", fires when an element gets focus
+            oninput="myFunction()", fires when an element gets user input
+            oninvalid="myFunction()", fires when an element 
+            onreset="myFunction()", fires when reset button on form is clicked
+            onsearch="myFunction()", fires when user types in a searchfield
+            onselect="myFunction()", fires when text has been selected in an element
+            onsubmit="myFunction()", fires when form is submitted 
         -->
         <p>form element, and form elements</p>
         <form id="form1" action="/endpoint.filename">
@@ -723,6 +766,58 @@
                 <option value="brave"></option>
             </datalist>
 
+            <p>input attributes</p>
+            <p>attribute value="", sets default value</p>
+            <label for="value-id">value label</label>
+            <input value="hello" id="value-id" type="text" name="value-id" />
+            <p>attribute readonly="readonly", readonly, can't be changed, value="" is sent</p>
+            <label for="readonly-id">readonly label</label>
+            <input readonly="readonly" id="readonly-id" type="text" name="readonly-id" value="readonly-attribute" />
+            <p>attribute disabled="disabled", unusable, unclickable, value not sent</p>
+            <label for="disabled-id">disabled label</label>
+            <input disabled="disabled" id="disabled-id" type="text" name="disabled-id" value="disabled-value"/>
+            <p>attribute size="", dimension size! not characters, for an input field,default is 20, set here to 10</p>
+            <p>corresponding inputs, text, search, tel, email, url, password</p>
+            <label for="size-id">size label</label>
+            <input size="10" id="size-id" type="text" name="size-id"/>
+            <p>attribute maxlength="", maximum allowed characters, set to 4 here</p>
+            <label for="maxlength-id">maxlength label</label>
+            <input maxwidth="4" id="maxlength-id" type="text" name="maxlength-id" />
+            <p>attribute min="" and max="", sets a range of legal values for number and time type inputs</p>
+            <p>corresponding inputs, number, range, date, datetime-local, time, month, week</p>
+            <label for="min-max-id">min and max label, for type="number", 1 to 10</label>
+            <input min="1" max="10" id="min-max-id" type="number" name="min-max-id" />
+            <p>attribute multiple="multiple", allows entering more than one value</p>
+            <p>corresponding inputs, email and file</p>
+            <label for="multiple-id">multiple label</label>
+            <input multiple="multiple" id="multiple-id" type="file" name="multiple-id" />
+            <p>attribute pattern="", check against JS regex</p>
+            <p>corresponding inputs, text, date, search, url, tel, email, password</p>
+            <label for="pattern-id">pattern label, accepts a-c</label>
+            <input pattern="[a-c]" id="pattern-id" type="text" name="pattern-id" />
+            <p>attribute placeholder="", sample value or description, not actual value</p>
+            <label for="placeholder-id">placeholder label</label>
+            <input placeholder="placeholder-example" id="placeholder-id" type="text" name="placeholder-id" />
+            <p>attribute required="required", field must be filled out to submit the form</p>
+            <p>corresponding inputs, text, search, url, tel, email, password, date pickers, number, checkbox, radio, file</p>
+            <label for="required-id">required label</label>
+            <input required="required" id="required-id" type="text" name="required-id" />
+            <p>attribute step="", sets legal intervals for number and time types</p>
+            <p>corresponding inputs, number, range, date, datetime-local, time, month, week</p>
+            <label for="step-id">step label, for number every 10</label>
+            <input step="10" id="step-id type="number" name="step-id" />
+            <p>attribute autofocus="autofocus", jumps to that field first, left it off here though</p>
+            <label for="autofocus-id">autofocus label</label>
+            <!-- <input autofocus="autofocus" id="autofocus" type="text" name="autofocus-id" /> -->\
+            <p>attribute width="" and height="", dimension values, better to use css</p>
+            <p>images need at least width or max-width set so browser can allocate space, </p>
+            <label for="width-and-height-id">width and height label</label>
+            <input width="100" height="100" id="width-and-height-id" type="text" name="width-and-height-id" />
+            <p>attribute list="datalist-name", see datalist</p>
+            <br />
+            <p>attribute autocomplete="off", set autocomplete on or off for specific fields</p>
+            <label for="autocomplete-id">autocomplete label</label>
+            <input autocomplete="off" id="autocomplete-id" type="text" name="autocomplete-id" />
         </form>
 
         <br>
@@ -740,8 +835,373 @@
             <output name="x" for="a b"></output>
             <br />
         </form>
-    </body>
 
+
+        <p>HTML Graphics, SVG and Canvas</p>
+
+        <!-- canvas, 
+            canvas is a rectangular container for graphics, must be drawn on with JS and can be done on the fly,
+            paths for drawing
+                boxes
+                circles
+                text
+                added images
+            always set id, width, height
+            no event handlers for canvas
+            canvas rendered pixel by pixel then forgotten by browser
+        -->
+        <p>HTML canvas, see canvas script</p>
+        <canvas id="linecanvas" width="200" height="100" style="border: 1px solid black;"></canvas>
+        <canvas id="circlecanvas" width="200" height="100" style="border: 1px solid black;"></canvas>
+        <canvas id="textcanvas" width="200" height="100" style="border: 1px solid black;"></canvas>
+        <canvas id="imagecanvas" width="200" height="100" style="border: 1px solid black;"></canvas>
+    
+        <p>HTML SVG</p>
+        <!-- svg, 
+            scalable vector graphics,
+            if vectors are changed browswer can rerender, 
+            eventhandlers allowed,
+            svg is xml based, elements available in svg dom
+            slow, 
+        -->
+        <svg height="130" width="500">
+            <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+            <text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">SVG</text>
+            Sorry, your browser does not support inline SVG.
+        </svg>
+
+        <p>HTML Media</p>
+        <p>Video mp4 is standard, .ogg and .webm supported by HTML5, other formats like flash and mpeg are older</p>
+        
+        <p>audio. mp3 is standard, .wav and .ogg are supported by HTML5</p>
+
+        <p>video, before html 5 only flash allowed embedding of videos</p>
+        <p>attribute controls="controls", adds default controls</p>
+        <p>attribute autoplay="autoplay", will default autoplay</p>
+        <p>first source element that browser recognizes will be used </p>
+        <p>video element has many event handlers and additional controls</p>
+        <video type="video/mp4" width="400" height="240" controls="controls">
+            <source src="nosource" />
+        </video>
+
+        <p>audio, works very similar to video, no dimensions required though</p>
+        <audio type="audio/mp3" controls="controls">
+            <source src="nosource" />
+        </audio>
+
+        <p>HTML Plug-ins</p>
+        <p>use object and embed for embedding into web pages, example is flash</p>
+        <p>object, flash example below not showing</p>
+        <object width="400" height="50" data="bookmark.filename">
+            <!-- param used within object to set parameters for plugins, set name and value -->
+            <param name="autoplay" value="true" />
+        </object>
+        <p>object can also insert html into html</p>
+        <object width="200" height="150" data="./jsinfosite.PNG"></object>
+        <p>embed, closed tag, flash example below not showing</p>
+        <embed width="200" height="125" data="bookmark.filename" />
+        <embed src="./jsinfosite.PNG" width="200" height="150" />
+
+        <p>HTML youtube</p>
+        <p>youtube has it's own api, give it controls and instructions in the url params</p>
+        <p>put the video in an iframe</p>
+        <iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1"></iframe>
+        
+        <br />
+        <!-- any element in html5 can be draggable 
+            draggable="true", set draggable attribute
+            ondragstart="drag(event)", drag is a custom function, ondragstart passes it an event object
+            ev.dataTransfer.setData("id", ev.target.id)use dataTransfer and setData to set the id of the draggable element to our event object
+
+            on the element we want to drop to
+            ondragover="allowDrop(event)", allowDrop is a custom function 
+            event.preventDefault();, default behavior is to not allow objects to be dragged over, 
+            this allows us to drop, it specifies where we can drop elements
+            ondrop="drop(event)", drop is a custom function, when drop happens a drop event happens, recieves the event object
+            event.preventDefault();, prevents default handling of data, like if your dropping a link because the browser will try to execute it if there is no preventDefault
+            const id = event.dataTransfer.getData("id"); get our id that was set on the event 
+            event.target.appendChild(document.getElementById(id)); append element to new location
+       
+            other drag events also fire at the same time or in a sequence kind of like in life cycle methods 
+            but the events here are sufficient for generic drag and drop
+        --> 
+        <p>Drag/Drop Api</p>
+      
+            <div ondragover="allowDrop(event)" ondrop="drop(event)"  style="width: 200px; height: 125px; border: 1px solid black;">
+                <img id="drag1" src="./jsinfosite.PNG" draggable="true" ondragstart="drag(event)" width="200" height="125" />
+            </div>
+            <div ondragover="allowDrop(event)" ondrop="drop(event)" style="width: 200px; height: 125px;border: 1px solid black;"></div>
+           
+        <p>web workers</p>
+        <button onclick="startWorker()">start worker</button>
+        <button onclick="stopWorker()">stop worker</button>
+        <div>web worker count output <output id="worker-output"></output></div>
+            
+        <br>
+        <p>HTML global attributes</p>
+
+        <p>global attribute accesskey="", keypress will autofocus on that element, must be a single number or letter</p>
+        <div>browsers access key differently, chrome is alt + key, firefox is alt + shift + key</div>
+        <div accesskey="c">alt + c, not working</div>
+
+        <p class="class-style">global attribute class=""</p>
+        <p contenteditable="true">global attribute contenteditable="true", content can be edited, if not specified will inherit from parent</p>
+        <p  id="123-string-id" data-custom-name="123string">attribute data-*="", set a string value to the data-custom-name, use this instead of non-standard attribute names, or Node.setUserData() for storing information</p>
+        <!-- access with the JS like so, 
+            document.querySelector('#123-string-id').dataset.data-custom-name; 
+        -->
+        <p>global attribute dir="rtl", like float right etc</p>
+        <p dir="rtl">attribute dir="rtl"</p>
+        <br /> 
+        <p draggable="true">global attribute draggable="true"</p>
+        <p dropzone="copy">global attribute dropzone="copy|move|link",for dragging, copy makes copy, move moves data over, and link makes a link to the original data</p>
+        <p hidden="hidden">global attribute hidden="hidden", element hidden and removed from document flow</p>
+        <p id="me-id">global id attribute</p>
+        <br />
+        <p >global attribute lang="", mix up the language per element</p>
+        <p lang="fr">Ceci est un paragraphe.</p>
+        <br />
+        <p>global attribute spellcheck="true|false", spellcheck inputs, textarea, editable elements</p>
+        <label for="check-spelling">label for testing spellcheck attribute on input</label>
+        <input spellcheck="true" id="check-spelling" type="text" name="check-spelling" />
+        <p style="color:blue">global attribute style=""</p>
+        <p tabindex="1">global attribute tabindex="", specifies order of elements for tabbing</p>
+        <p title="global-title-attribute">global attribute title="", gives extra information about an element, browsers may give tooltip text</p>
+        <p>global attribute translate="yes|no", translates this elements text to another language depending on lang declared</p>
+        
+        <br />
+      
+        
+        
+        <p>next do html media events, attributes</p>
+
+        <!--
+            keyboard events, they run in this order
+            onkeydown="myFunction()",
+            onkeypress="myFunction()",
+            onkeyup="myFunction()",
+            most likely may use onkeydown and onkeyup together
+        -->
+
+        <!-- 
+            mouse events
+            events for left mouse button in order
+            onmousedown="myFunction()",
+            onmouseup="myFunction()",
+            onclick="myFunction()",
+
+            events for right mouse button in order
+            onmousedown="myFunction()",
+            onmouseup="myFunction()", 
+            oncontextmenu="myFunction()",
+
+            other events
+            ondblclick="myFunction()", 
+            onmousemove="myFunction()", fires when pointer is moving on an element
+            onmouseover="myFunction()", fires when pointer moves over an element
+            onmouseout="myFunction()", fires when pointer moves out of an element
+            onwheel="myFunction()", fires when mouse wheel rolls up or down over an element
+        -->
+
+        <!--
+            drag events, including onscroll
+            ondrag="myFunction()", Script to be run when an element is dragged
+            ondragend="myFunction()", Script to be run at the end of a drag operation
+            ondragenter="myFunction()", Script to be run when an element has been dragged to a valid drop target
+            ondragleave="myFunction()", Script to be run when an element leaves a valid drop target
+            ondragover="myFunction()", Script to be run when an element is being dragged over a valid drop target
+            ondragstart="myFunction()",Script to be run at the start of a drag operation
+            ondrop="myFunction()", Script to be run when dragged element is being dropped
+            onscroll="myFunction()", Script to be run when an element's scrollbar is being scrolled 
+        -->
+
+        <!-- 
+            clipboard events,
+            oncopy="myFunction()", Fires when the user copies the content of an element
+            oncut="myFunction()", Fires when the user cuts the content of an element
+            onpaste="myFunction()", Fires when the user pastes some content in an element
+        -->
+
+        <!--
+            media events
+            onabort="myFunction()", Script to be run on abort
+            oncanplay="myFunction()", Script to be run when a file is ready to start playing (when it has buffered enough to begin)
+            oncanplaythrough="myFunction()", Script to be run when a file can be played all the way to the end without pausing for buffering
+            oncuechange="myFunction()", Script to be run when the cue changes in a <track> element
+            ondurationchange="myFunction()", Script to be run when the length of the media changes
+            onemptied="myFunction()", Script to be run when something bad happens and the file is suddenly unavailable (like unexpectedly disconnects)
+            onended="myFunction()", Script to be run when the media has reach the end (a useful event for messages like "thanks for listening")
+            onerror="myFunction()", Script to be run when an error occurs when the file is being loaded
+            onloadeddata="myFunction()", Script to be run when media data is loaded
+            onloadedmetadata="myFunction()", Script to be run when meta data (like dimensions and duration) are loaded
+            onloadstart="myFunction()", Script to be run just as the file begins to load before anything is actually loaded
+            onpause="myFunction()", Script to be run when the media is paused either by the user or programmatically
+            onplay="myFunction()", Script to be run when the media is ready to start playing
+            onplaying="myFunction()", Script to be run when the media actually has started playing
+            onprogress="myFunction()", Script to be run when the browser is in the process of getting the media data
+            onratechange="myFunction()", Script to be run each time the playback rate changes (like when a user switches to a slow motion or fast forward mode)
+            onseeked="myFunction()", Script to be run when the seeking attribute is set to false indicating that seeking has ended
+            onseeking="myFunction()", Script to be run when the seeking attribute is set to true indicating that seeking is active
+            onstalled="myFunction()", Script to be run when the browser is unable to fetch the media data for whatever reason
+            onsuspend="myFunction()", Script to be run when fetching the media data is stopped before it is completely loaded for whatever reason
+            ontimeupdate="myFunction()", Script to be run when the playing position has changed (like when the user fast forwards to a different point in the media)
+            onvolumechange="myFunction()", Script to be run each time the volume is changed which (includes setting the volume to "mute")
+            onwaiting="myFunction()", Script to be run when the media has paused but is expected to resume (like when the media pauses to buffer more data)
+        -->
+
+        <!--
+            misc
+            ontoggle="myFunction()", fires when user opens up the details element
+        -->
+
+        <!-- 
+            http methods
+            get, only urlencoded, cached
+            post, not cached, each request will update the endpoint, urlencoded and multipart form data, binary ok
+            put, idempotent, means request only ever sent once
+            delete, 
+            head, almost identical to get, but NO response body
+            options, describes communications options with the target resource
+        -->
+        <!--
+            http status messages
+            1xx, information
+            2xx, successful
+            3xx, redirect
+            4xx, client error
+            5xx, server error
+        -->
+    </body>
+    <script>
+        // sse, server sent event notifications
+        // EventSource
+        // create a source for where notifications are coming from
+        // filename or URL
+        // then set event handlers such as onmessage 
+        // or onopen ,when the connection to the server is opened
+        // the output of the data always starts with data:
+
+        const source = new EventSource("filename or URL")
+        source.onmessage = function(event) {
+            console.log(event.data);
+        }
+
+        // for the server side code
+        // set header 'Content-Type': 'text/event-stream'
+        // set header 'Cache-Control': 'no-cache'
+
+    </script>
+    <script>
+        //web workers
+        //run independently of other scripts allow page to be more responsive
+        // add event handlers to the worker if desired
+        //send data back to page via methods such as postMessage()
+
+        // will not run in chrome, need workaround, they restrict web being able to 
+        // access file system, 
+
+        let wrkr;
+
+        function startWorker() {
+            if(typeof(Worker) !== 'undefined') {
+                if (typeof(wrkr) == 'undefined') {
+                    //create worker, just give it a file
+                    wrkr = new Worker('./webworkerfile.js');
+                }
+                //add event handler to worker
+                wrkr.onmessage = function(event) {
+                    document.getElementById("worker-output").innerHTML = event.data;
+                }
+            } else {
+                console.log('no worker support')
+            }
+        }
+
+        function stopWorker() {
+            //stop worker
+            wrkr.terminate();
+            wrkr = undefined;
+        }
+    </script>
+    <script>
+        //web storage, local storage and session storage
+        // local stays until cache is deleted I believe
+        // session stays until browser is closed
+        // web storage has 5mb of space
+        // web storage supposedly is per origin, aka domain an protocol
+        // add data with object notation or setItem("first", "Colton")
+        // remove data with removeItem("first")
+        // all data stored as string value
+
+        // window.localStorage.setItem("first", "Colton");
+        // window.localStorage.removeItem("first");
+        // window.localStorage.first = "Colton";
+    </script>
+    <script>
+        //drag/drop api
+        function drag(event) {
+            event.dataTransfer.setData("id", event.target.id)
+        }
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+        function drop(event) {
+            event.preventDefault;
+            const id = event.dataTransfer.getData("id");
+            event.target.appendChild(document.getElementById(id));
+        }
+    </script>
+    <script>
+        //geolocation api
+        //access via window.navigator.geolocation.methodName
+        //geolocation takes 2 callbacks as arguments, a success function and an error function
+        //geolocation will pass the geolocation data as an argument to success
+        function success(position) {
+            console.log(position);
+            console.log(position.coords);
+        }
+        function error() {
+            console.log("error")
+        }
+        window.navigator.geolocation.getCurrentPosition(success, error);
+        //use other methods like .watchPosition() which registers a handler that will be called
+        //each time the position changes
+    </script>
+    <script >
+        //line canvas script 
+        let line = document.getElementById("linecanvas");
+        let lineCtx = line.getContext("2d");
+        lineCtx.moveTo(0,0);
+        lineCtx.lineTo(200,100);
+        lineCtx.stroke();
+
+        //circle canvas script
+        let circle = document.getElementById("circlecanvas");
+        let circleCtx = circle.getContext("2d");
+        circleCtx.beginPath();
+        circleCtx.arc(95,50,40,0, 2 * Math.PI);
+        circleCtx.stroke();
+        
+        //text canvas script, not sure why not working
+        let text = document.getElementById("textcanvas");
+        let textCtx = text.getContext("2d");
+        textCtx.font = "30px Arial";
+        textCtx.fillText = ("Canvas Text", 10, 50);
+     
+        
+
+        //image canvas script,  not sure why not working
+        let imgCanvas = document.getElementById("imagecanvas");
+        let imgCtx = imgCanvas.getContext("2d");
+        let img = document.getElementById("jsinfo");
+        imgCtx.drawImage(img, 10, 10);
+    </script>
     <script>
         //html script tags
         //src attribute points to external file
