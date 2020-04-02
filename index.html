@@ -124,7 +124,7 @@
         <p><a href="https://www.w3schools.com" target="_top">_top, opens in full body, breaks out of any frames</a></p>
 
         <!-- link title -->
-        <p><a href="https://www.w3schools.com" title="goes to w3schools"></a>link with title attribute,does hover tooltip text</a></p>
+        <p><a href="https://www.w3schools.com" title="goes to w3schools"></a>link with title attribute</a></p>
 
         <!-- local link, for elsewhere on the same site, no www -->
         <a href="/localpage1">local link for same site</a>
@@ -145,12 +145,12 @@
 
         <!--attributes, attributename=attributevalue -->
         <!-- always quote attribute values "" , single quotes inside if need be " '' "-->
-        <!-- some attributes only have name like disabled-->
+        <!-- some attributes may be minimized like disabled, to make xml compatable include the value like disabled="disabled" -->
         <!-- disabled, input element to be disabled -->
         <input type="text" disabled />
 
         <!-- alt, alternative text for images -->
-        <!-- also image behaving like an inline element, not block-->
+        <!-- also image is an inline element, -->
         <img id="jsinfo" src="./jsinfosite.PNG" width="200" height="100" alt="cool picture" />
 
         <!-- img gifs, same as regular images-->
@@ -394,7 +394,6 @@
 
         <!-- 
             dl tag, description list 
-            dl, descriptionlist tag
             dt, description term
             dd, description data/item
         -->
@@ -623,7 +622,7 @@
             oncontextmenu="myFunction()",fires when a context menu is triggered
             onfocus="myFunction()", fires when an element gets focus
             oninput="myFunction()", fires when an element gets user input
-            oninvalid="myFunction()", fires when an element 
+            oninvalid="myFunction()", fires when an element is not valid, not sure what this means
             onreset="myFunction()", fires when reset button on form is clicked
             onsearch="myFunction()", fires when user types in a searchfield
             onselect="myFunction()", fires when text has been selected in an element
@@ -674,7 +673,7 @@
 
             <p>fieldset, block-level and provides semantic meaning to group form data</p>
             <fieldset>
-                <legend>legend, title for the fieldset</legend>
+                <legend>legend, is the title for the fieldset</legend>
                 <label for="first-name">first name</label>
                 <input id="first-name" name="first-name" type="text" />
             </fieldset>
@@ -684,6 +683,7 @@
             <div>for="id-name" for in label should match input id</div>
             <div>All inputs should have a name, or data will not be submitted, names can be shared if needed like for radio buttons</div>
             <div>All inputs should have an id</div> 
+            <div>All inputs need a value="" if one cannot be inputted by user</div>
             <p>input, type="text"</p>
             <label for="text-id">text label</label>
             <input id="text-id" type="text" name="text-name" />
@@ -782,7 +782,7 @@
             <input size="10" id="size-id" type="text" name="size-id"/>
             <p>attribute maxlength="", maximum allowed characters, set to 4 here</p>
             <label for="maxlength-id">maxlength label</label>
-            <input maxwidth="4" id="maxlength-id" type="text" name="maxlength-id" />
+            <input maxlength="4" id="maxlength-id" type="text" name="maxlength-id" />
             <p>attribute min="" and max="", sets a range of legal values for number and time type inputs</p>
             <p>corresponding inputs, number, range, date, datetime-local, time, month, week</p>
             <label for="min-max-id">min and max label, for type="number", 1 to 10</label>
@@ -879,7 +879,7 @@
         <p>HTML Media</p>
         <p>Video mp4 is standard, .ogg and .webm supported by HTML5, other formats like flash and mpeg are older</p>
         
-        <p>audio. mp3 is standard, .wav and .ogg are supported by HTML5</p>
+        <p>audio. mp3 is standard, .ogg and .wav are supported by HTML5</p>
 
         <p>video, before html 5 only flash allowed embedding of videos</p>
         <p>attribute controls="controls", adds default controls</p>
